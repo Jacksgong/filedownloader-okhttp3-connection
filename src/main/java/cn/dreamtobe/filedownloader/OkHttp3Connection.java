@@ -109,6 +109,7 @@ public class OkHttp3Connection implements FileDownloadConnection {
     public static class Creator implements FileDownloadHelper.ConnectionCreator {
 
         private OkHttpClient mClient;
+        private OkHttpClient.Builder mBuilder;
 
         public Creator() {
         }
@@ -116,10 +117,10 @@ public class OkHttp3Connection implements FileDownloadConnection {
         /**
          * Create the Creator with the customized {@code client}.
          *
-         * @param client the customized client.
+         * @param builder the builder for customizing the okHttp client.
          */
-        public Creator(OkHttpClient client) {
-            mClient = client;
+        public Creator(OkHttpClient.Builder builder) {
+            mBuilder = builder;
         }
 
         @Override
@@ -127,7 +128,8 @@ public class OkHttp3Connection implements FileDownloadConnection {
             if (mClient == null) {
                 synchronized (Creator.class) {
                     if (mClient == null) {
-                        mClient = new OkHttpClient();
+                        mClient = mBuilder != null ? mBuilder.build() : new OkHttpClient();
+                        mBuilder = null;
                     }
                 }
             }
