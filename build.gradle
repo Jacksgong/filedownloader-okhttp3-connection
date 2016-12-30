@@ -39,7 +39,7 @@ android {
         }
 
         test {
-            java.srcDir 'test/java'
+            java.srcDir 'src/test/java'
         }
     }
 }
