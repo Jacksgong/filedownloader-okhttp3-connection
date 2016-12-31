@@ -71,7 +71,6 @@ public class OkHttp3ConnectionTest {
     @Test
     public void createCreator_customizeWithoutBuilder_newOne() throws IOException {
         OkHttp3Connection.Creator creator = new OkHttp3Connection.Creator();
-        OkHttp3Connection connection = (OkHttp3Connection) creator.create(URL);
 
         assertThat(creator.customize()).isNotNull();
     }
