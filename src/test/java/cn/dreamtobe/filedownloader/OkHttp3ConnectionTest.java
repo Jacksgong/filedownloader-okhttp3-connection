@@ -60,9 +60,20 @@ public class OkHttp3ConnectionTest {
         when(builder.build()).thenReturn(customizedClient);
 
         OkHttp3Connection.Creator creator = new OkHttp3Connection.Creator(builder);
+
+        assertThat(creator.customize()).isEqualTo(builder);
+
         OkHttp3Connection connection = (OkHttp3Connection) creator.create(URL);
 
         assertThat(connection.mClient).isEqualTo(customizedClient);
+    }
+
+    @Test
+    public void createCreator_customizeWithoutBuilder_newOne() throws IOException {
+        OkHttp3Connection.Creator creator = new OkHttp3Connection.Creator();
+        OkHttp3Connection connection = (OkHttp3Connection) creator.create(URL);
+
+        assertThat(creator.customize()).isNotNull();
     }
 
     @Test

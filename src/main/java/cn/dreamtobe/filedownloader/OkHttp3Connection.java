@@ -126,6 +126,21 @@ public class OkHttp3Connection implements FileDownloadConnection {
             mBuilder = builder;
         }
 
+        /**
+         * Get a non-null builder used for customizing the okHttpClient.
+         * <p>
+         * If you have already set a builder through the construct method, we will return it directly.
+         *
+         * @return the non-null builder.
+         */
+        public OkHttpClient.Builder customize() {
+            if (mBuilder == null) {
+                mBuilder = new OkHttpClient.Builder();
+            }
+
+            return mBuilder;
+        }
+
         @Override
         public FileDownloadConnection create(String url) throws IOException {
             if (mClient == null) {
