@@ -15,7 +15,7 @@ FileDownloader.init(context, new DownloadMgrInitialParams.InitCustomMaker()
                 .connectionCreator(new OkHttp3Connection.Creator()));
 ```
 
-Alternatively, If you want to customize the `OkHttp3Client`, you can provide the `OkHttpClient.Builder` when instance the `OkHttp3Connection.Creator`:
+Alternatively, If you want to customize the `OkHttp3Client`, you can provide the `OkHttpClient.Builder` when create the `OkHttp3Connection.Creator`:
 
 ```java
 // Enable the okHttp3 connection with the customized okHttp client builder.
