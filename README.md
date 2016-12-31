@@ -2,6 +2,7 @@
 
 A connection implemented with the OkHttp3 for FileDownloader.
 
+[![Download][bintray_svg]][bintray_url]
 ![][file_downloader_svg]
 
 ## Usage
@@ -32,6 +33,7 @@ Adding the following dependency to your `build.gradle` file:
 
 ```groovy
 dependencies {
+    compile 'cn.dreamtobe.filedownloader:filedownloader-okhttp3-connection:1.0.0'
 }
 ```
 
@@ -54,3 +56,5 @@ limitations under the License.
 ```
 
 [file_downloader_svg]: https://img.shields.io/badge/Android-FileDownloader-orange.svg
+[bintray_svg]: https://api.bintray.com/packages/jacksgong/maven/filedownloader-okhttp3-connection/images/download.svg
+[bintray_url]: https://bintray.com/jacksgong/maven/filedownloader-okhttp3-connection/_latestVersion
