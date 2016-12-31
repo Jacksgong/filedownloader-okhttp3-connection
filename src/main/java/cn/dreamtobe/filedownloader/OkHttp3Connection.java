@@ -33,16 +33,19 @@ import okhttp3.Response;
  */
 public class OkHttp3Connection implements FileDownloadConnection {
 
-    private final OkHttpClient mClient;
+    final OkHttpClient mClient;
     private final Request.Builder mRequestBuilder;
 
     private Request mRequest;
     private Response mResponse;
 
-    public OkHttp3Connection(String url, OkHttpClient client) {
-        mRequestBuilder = new Request.Builder().url(url);
-
+    OkHttp3Connection(Request.Builder builder, OkHttpClient client) {
+        mRequestBuilder = builder;
         mClient = client;
+    }
+
+    public OkHttp3Connection(String url, OkHttpClient client) {
+        this(new Request.Builder().url(url), client);
     }
 
     @Override
@@ -78,7 +81,7 @@ public class OkHttp3Connection implements FileDownloadConnection {
 
     @Override
     public String getResponseHeaderField(String name) {
-        return mResponse == null ? null : mRequest.header(name);
+        return mResponse == null ? null : mResponse.header(name);
     }
 
     @Override
