@@ -4,6 +4,7 @@ A connection implemented with the OkHttp3 for FileDownloader.
 
 [![Download][bintray_svg]][bintray_url]
 ![][file_downloader_svg]
+[![Build Status][build_status_svg]][build_status_link]
 
 ## Usage
 
@@ -58,3 +59,5 @@ limitations under the License.
 [file_downloader_svg]: https://img.shields.io/badge/Android-FileDownloader-orange.svg
 [bintray_svg]: https://api.bintray.com/packages/jacksgong/maven/filedownloader-okhttp3-connection/images/download.svg
 [bintray_url]: https://bintray.com/jacksgong/maven/filedownloader-okhttp3-connection/_latestVersion
+[build_status_svg]: https://travis-ci.org/Jacksgong/filedownloader-okhttp3-connection.svg?branch=master
+[build_status_link]: https://travis-ci.org/Jacksgong/filedownloader-okhttp3-connection
