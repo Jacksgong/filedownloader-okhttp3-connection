@@ -38,6 +38,15 @@ dependencies {
 }
 ```
 
+## Proguard Rule
+
+because of okhttp, you need to add below `proguard-rules` to your project:
+
+```
+-dontwarn okhttp3.*
+-dontwarn okio.**
+```
+
 ## License
 
 ```
