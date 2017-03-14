@@ -28,6 +28,36 @@ FileDownloader.init(context, new DownloadMgrInitialParams.InitCustomMaker()
         .connectionCreator(new OkHttp3Connection.Creator(builder)));
 ```
 
+## Okhttp3 Versioin and FileDownloader Version
+
+If you want to dependency another newer version of Okhttp3 or FileDownloader, just feel free add on your `dependencies` block, such as:
+
+> In this case, gradle will choose newer version dependency library instead.
+
+```groovy
+dependencies {
+  compile'cn.dreamtobe.filedownloader:filedownloader-okhttp3-connection:1.0.0'
+  compile 'com.squareup.okhttp3:okhttp:3.6.0'
+  compile 'com.liulishuo.filedownloader:library:1.4.1'
+}
+```
+
+If you want to dependency another lower version of Okhttp3 or FileDownloader, you need to `exclude` it from filedownloader-okhttp3-connection first, then add it, such as:
+
+```groovy
+dependencies {
+  compile('cn.dreamtobe.filedownloader:filedownloader-okhttp3-connection:1.0.0') {
+      exclude module: 'okhttp'
+      exclude group: 'com.liulishuo.filedownloader'
+  }
+
+  compile 'com.squareup.okhttp3:okhttp:3.4.2'
+  compile 'com.liulishuo.filedownloader:library:1.3.0'
+}
+```
+
+**Finally**, please don't forget to use `./gradlew dependencies` to check out the final relationship of dependencies on your project.
+
 ## Installation
 
 Adding the following dependency to your `build.gradle` file:
