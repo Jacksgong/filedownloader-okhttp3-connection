@@ -48,7 +48,7 @@ If you want to dependency another lower version of Okhttp3 or FileDownloader, yo
 dependencies {
   compile('cn.dreamtobe.filedownloader:filedownloader-okhttp3-connection:1.0.0') {
       exclude module: 'okhttp'
-      exclude group: 'com.liulishuo.filedownloader'
+      exclude group: 'com.liulishuo.filedownloader', module: 'library'
   }
 
   compile 'com.squareup.okhttp3:okhttp:3.4.2'
