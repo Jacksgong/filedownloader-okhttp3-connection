@@ -27,6 +27,12 @@ android {
     compileSdkVersion COMPILE_SDK_VERSION as int
     buildToolsVersion BUILD_TOOLS_VERSION as String
 
+    buildTypes {
+        debug {
+            testCoverageEnabled true
+        }
+    }
+
     defaultConfig {
         minSdkVersion MIN_SDK_VERSION as int
         targetSdkVersion COMPILE_SDK_VERSION as int
