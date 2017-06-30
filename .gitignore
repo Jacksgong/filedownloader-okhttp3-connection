@@ -10,3 +10,7 @@
 /build
 /captures
 .externalNativeBuild
+/.classpath
+/.project
+/.settings
+/.vscode
