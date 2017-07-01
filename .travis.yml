@@ -14,6 +14,7 @@ android:
     - android-25
     - extra
 script:
+  - ./gradlew jacocoTestReport
   - ./gradlew connectedCheck
 after_script:
    - bash <(curl -s https://codecov.io/bash) -t ${UUID_TOKEN}
