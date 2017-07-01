@@ -13,9 +13,7 @@ android:
     - build-tools-25.0.0
     - android-25
     - extra
-    - extra-android-m2repository
 script:
-  - ./gradlew build jacocoTestReport assembleAndroidTest
   - ./gradlew connectedCheck
 after_script:
    - bash <(curl -s https://codecov.io/bash) -t ${UUID_TOKEN}
