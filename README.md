@@ -24,8 +24,8 @@ final OkHttpClient.Builder builder = new OkHttpClient.Builder();
 builder.connectTimeout(20_000, TimeUnit.SECONDS); // customize the value of the connect timeout.
 
 // Init the FileDownloader with the OkHttp3Connection.Creator.
-FileDownloader.init(context, new DownloadMgrInitialParams.InitCustomMaker()
-        .connectionCreator(new OkHttp3Connection.Creator(builder)));
+FileDownloader.setupOnApplicationOnCreate(this)
+        .connectionCreator(new OkHttp3Connection.Creator(builder));
 ```
 
 ## Okhttp3 Versioin and FileDownloader Version
@@ -38,7 +38,7 @@ If you want to dependency another newer version of Okhttp3 or FileDownloader, ju
 dependencies {
   compile'cn.dreamtobe.filedownloader:filedownloader-okhttp3-connection:1.0.0'
   compile 'com.squareup.okhttp3:okhttp:3.6.0'
-  compile 'com.liulishuo.filedownloader:library:1.4.1'
+  compile 'com.liulishuo.filedownloader:library:1.6.8'
 }
 ```
 
