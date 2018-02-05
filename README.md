@@ -28,6 +28,16 @@ FileDownloader.setupOnApplicationOnCreate(this)
         .connectionCreator(new OkHttp3Connection.Creator(builder));
 ```
 
+## Installation
+
+Adding the following dependency to your `build.gradle` file:
+
+```groovy
+dependencies {
+    compile 'cn.dreamtobe.filedownloader:filedownloader-okhttp3-connection:1.1.0'
+}
+```
+
 ## Okhttp3 Versioin and FileDownloader Version
 
 If you want to dependency another newer version of Okhttp3 or FileDownloader, just feel free add on your `dependencies` block, such as:
@@ -36,9 +46,9 @@ If you want to dependency another newer version of Okhttp3 or FileDownloader, ju
 
 ```groovy
 dependencies {
-  compile'cn.dreamtobe.filedownloader:filedownloader-okhttp3-connection:1.0.0'
-  compile 'com.squareup.okhttp3:okhttp:3.6.0'
-  compile 'com.liulishuo.filedownloader:library:1.6.8'
+  compile'cn.dreamtobe.filedownloader:filedownloader-okhttp3-connection:1.1.0'
+  compile 'com.squareup.okhttp3:okhttp:3.9.1'
+  compile 'com.liulishuo.filedownloader:library:1.7.0'
 }
 ```
 
@@ -46,27 +56,18 @@ If you want to dependency another lower version of Okhttp3 or FileDownloader, yo
 
 ```groovy
 dependencies {
-  compile('cn.dreamtobe.filedownloader:filedownloader-okhttp3-connection:1.0.0') {
+  compile('cn.dreamtobe.filedownloader:filedownloader-okhttp3-connection:1.1.0') {
       exclude module: 'okhttp'
       exclude group: 'com.liulishuo.filedownloader', module: 'library'
   }
 
   compile 'com.squareup.okhttp3:okhttp:3.4.2'
-  compile 'com.liulishuo.filedownloader:library:1.3.0'
+  compile 'com.liulishuo.filedownloader:library:1.6.9'
 }
 ```
 
 **Finally**, please don't forget to use `./gradlew dependencies` to check out the final relationship of dependencies on your project.
 
-## Installation
-
-Adding the following dependency to your `build.gradle` file:
-
-```groovy
-dependencies {
-    compile 'cn.dreamtobe.filedownloader:filedownloader-okhttp3-connection:1.0.0'
-}
-```
 
 ## Proguard Rule
 
