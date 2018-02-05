@@ -68,6 +68,7 @@ public class OkHttp3ConnectionTest {
         assertThat(connection.mClient).isEqualTo(customizedClient);
     }
 
+
     @Test
     public void createCreator_customizeWithoutBuilder_newOne() throws IOException {
         OkHttp3Connection.Creator creator = new OkHttp3Connection.Creator();
@@ -84,7 +85,7 @@ public class OkHttp3ConnectionTest {
 
     }
 
-    @Test(expected = IllegalStateException.class)
+    @Test(expected = IOException.class)
     public void getInputStream_responseIsNull_throwException() throws IOException {
         mConnection.getInputStream();
     }

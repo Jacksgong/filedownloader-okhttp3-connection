@@ -21,12 +21,14 @@ import com.liulishuo.filedownloader.util.FileDownloadHelper;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.net.ProtocolException;
 import java.util.List;
 import java.util.Map;
 
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
+import okhttp3.ResponseBody;
 
 /**
  * The FileDownloadConnection implemented with the okhttp3.
@@ -60,9 +62,11 @@ public class OkHttp3Connection implements FileDownloadConnection {
 
     @Override
     public InputStream getInputStream() throws IOException {
-        if (mResponse == null) throw new IllegalStateException("Please invoke #execute first!");
+        if (mResponse == null) throw new IOException("Please invoke #execute first!");
+        final ResponseBody body = mResponse.body();
+        if (body == null) throw new IOException("No body found on response!");
 
-        return mResponse.body().byteStream();
+        return body.byteStream();
     }
 
     @Override
@@ -82,6 +86,11 @@ public class OkHttp3Connection implements FileDownloadConnection {
     @Override
     public String getResponseHeaderField(String name) {
         return mResponse == null ? null : mResponse.header(name);
+    }
+
+    @Override public boolean setRequestMethod(String method) throws ProtocolException {
+        mRequestBuilder.method(method, null);
+        return true;
     }
 
     @Override
